@@ -22,7 +22,7 @@ SRCS =  src/common.cc \
 	src/sum_if.cc \
 	src/avg_if.cc
 
-OBJS =  $(SRCS:%.cc=%.o)
+OBJS = $(%.cc=%.o)
 
 all: $(TARGET)
 
@@ -35,4 +35,4 @@ clean:
 	$(RM) $(OBJS) $(TARGET) a.out
 
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(SRCS) $(OBJS) -o $(TARGET)

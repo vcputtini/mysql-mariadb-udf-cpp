@@ -8,7 +8,8 @@ problems of all kinds with performance and security.
 As much as possible we will provide functions for use and learning.
 
 - liblocation:<br>
-It is a minimal library of functions related to Geo localization to be used directly in SQL statements in MariaDB/MySQL . See liblocation/README.md for details, please.
+It is a minimal library of functions related to Geo localization to be used directly in SQL statements in MariaDB/MySQL. 
+Please see liblocation/README.md for details.
 
 - libutilities:<br>
-It provides a set of utility functions for general use. Such as: count_if(), sum_if() and avg_if()
+It provides a set of utility functions for general use. Such as: count_if(), sum_if() and avg_if(). Please see liblocation/README.md for details.
