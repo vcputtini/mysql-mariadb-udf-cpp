@@ -23,7 +23,7 @@ SRCS = src/locationtools.cc src/UTM.cc \
 	src/geo_azimuth.cc \
 	src/unit_conv.cc
 
-OBJS =  $(SRCS:%.cc=%.o)
+OBJS =  $(%.cc=%.o)
 
 all: $(TARGET)
 
@@ -33,7 +33,7 @@ install: $(TARGET)
 	cp -f $(TARGET) $(DEST)
 
 clean:
-	$(RM) $(OBJS) $(TARGET) a.out
+	$(RM) $(OBJS) $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(SRCS) $(OBJS) -o $(TARGET)
