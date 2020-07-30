@@ -12,4 +12,4 @@ It is a minimal library of functions related to Geo localization to be used dire
 Please see liblocation/README.md for details.
 
 - libutilities:<br>
-It provides a set of utility functions for general use. Such as: count_if(), sum_if() and avg_if(). Please see liblocation/README.md for details.
+It provides a set of utility functions for general use. Such as: count_if(), sum_if() and avg_if(). Please see libutilities/README.md for details.
