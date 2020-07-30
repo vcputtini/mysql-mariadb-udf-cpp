@@ -8,7 +8,7 @@ problems of all kinds with performance and security.
 As much as possible we will provide functions for use and learning.
 
 - liblocation:<br>
-It is a minimal library of functions related to Geo localization to be used directly in SQL statements in MariaDB/MySQL. 
+It is a minimal library of functions related to Geo localization to be used directly in SQL statements in MariaDB/MySQL.
 Please see liblocation/README.md for details.
 
 - libutilities:<br>
