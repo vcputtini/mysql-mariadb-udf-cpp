@@ -1,4 +1,3 @@
-
 # The library must be copied to the MySQL/MariaDB plugin directory.
 # Check your Linux distribution for the correct path.
 # Confirm the correct path in your Linux distro.
