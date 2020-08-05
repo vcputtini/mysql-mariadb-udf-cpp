@@ -13,3 +13,8 @@ Please see liblocation/README.md for details.
 
 - libutilities:<br>
 It provides a set of utility functions for general use. Such as: count_if(), sum_if() and avg_if(). Please see libutilities/README.md for details.
+
+- liblogsquid:<br>
+Provides UDFs to directly handle Squid's log line.
+At the moment just handles built-in logformats.
+Please see libsquid/README.md for details.
