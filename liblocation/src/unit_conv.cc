@@ -41,7 +41,7 @@ extern "C" {
 my_bool unit_convert_init( UDF_INIT* initid, UDF_ARGS* args, char* message )
 {
   if(args->arg_count > 3 ) {
-    strcpy(message, "Syntax: unit_conv(value, [dec,] \"convertion_type\")");
+    strcpy(message, "Syntax: unit_convert(value, [dec,] \"convertion_type\")");
     return 1;
   }
 
