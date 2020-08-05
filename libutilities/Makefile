@@ -31,7 +31,7 @@ install: $(TARGET)
 	cp -f $(TARGET) $(DEST)
 
 clean:
-	$(RM) $(OBJS) $(TARGET) a.out
+	$(RM) $(OBJS) $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(SRCS) $(OBJS) -o $(TARGET)
