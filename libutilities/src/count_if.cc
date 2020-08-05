@@ -52,6 +52,15 @@ my_bool count_if_init( UDF_INIT* initid, UDF_ARGS* args, char* message )
 
   if( args->arg_count == 3) {
 
+    if( args->arg_type[0] == STRING_RESULT) {
+      strcpy(message,"Arg.1: Type of agumente must be numeric");
+      return 1;
+    }
+    if( args->arg_type[2] == STRING_RESULT) {
+      strcpy(message,"Arg.2: Type of agumente must be numeric");
+      return 1;
+    }
+
     if( args->arg_type[0] == INT_RESULT ) {
         args->arg_type[2] = INT_RESULT;
     } else {
