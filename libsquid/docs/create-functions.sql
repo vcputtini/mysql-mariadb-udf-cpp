@@ -16,3 +16,5 @@
 -- libutilities
 
 CREATE OR REPLACE FUNCTION log_squid RETURNS STRING SONAME 'liblogsquid.so';
+
+CREATE OR REPLACE AGGREGATE FUNCTION log_squid_sum RETURNS INTEGER SONAME 'liblogsquid.so';
