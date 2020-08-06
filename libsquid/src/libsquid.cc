@@ -275,7 +275,7 @@ std::vector<std::string> LogSquid::parse(std::string slog)
   std::string sbuf;
   std::vector<std::string> vbuf;
 
-  for(uint i=0; i<= slog.length(); i++) {
+  for(size_t i=0; i<= slog.length(); i++) {
     if( slog[i] == ' ' || slog[i] == 0) {
         sbuf.erase(0, sbuf.find_first_not_of(' '));
         vbuf.push_back(sbuf);
@@ -307,9 +307,10 @@ std::vector<std::string> LogSquid::parse(std::string slog)
   }
 
   // Remove empty elements from the vector
-  std::vector<std::string>::iterator it = std::remove_if( vbuf.begin(), vbuf.end(), [](std::string i) {
-                                                                                       return i == "";
-                                                                                     } );
+  std::vector<std::string>::iterator it =
+                 std::remove_if( vbuf.begin(), vbuf.end(), [](std::string i) {
+                                                           return i == "";
+                                                           } );
   vbuf.erase(it, vbuf.end());
 
   return vbuf;
