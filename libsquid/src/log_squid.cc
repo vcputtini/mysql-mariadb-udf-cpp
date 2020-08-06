@@ -14,6 +14,13 @@ my_bool log_squid_init( UDF_INIT* initid, UDF_ARGS* args, char* message )
   if(args->arg_count < 3) {
     strcpy(message, "Wrong number of arguments: ");
     return 1;
+  } else {
+    if((args->arg_type[LOG_FORMAT] != STRING_RESULT) ||
+       (args->arg_type[LOG_PART] != STRING_RESULT) ||
+       (args->arg_type[LOG_LINE] != STRING_RESULT)) {
+       std::strcpy(message, "Only type string arguments are accepted");
+       return 1;
+     }
   }
 
   if(args->arg_type[LOG_FORMAT] == STRING_RESULT) { // formato do log
@@ -58,7 +65,8 @@ my_bool log_squid_init( UDF_INIT* initid, UDF_ARGS* args, char* message )
   return 0;
 }
 
-char* log_squid(UDF_INIT *initid, UDF_ARGS *args, char* result, unsigned long* length,	char *is_null, char *error)
+char* log_squid(UDF_INIT *initid, UDF_ARGS *args, char* result,
+                            unsigned long* length,	char *is_null, char *error)
 {
   std::string slogformat(args->args[LOG_FORMAT], args->lengths[LOG_FORMAT]);
   std::string spart(args->args[LOG_PART], args->lengths[LOG_PART]);
@@ -68,13 +76,20 @@ char* log_squid(UDF_INIT *initid, UDF_ARGS *args, char* result, unsigned long* l
   ls.setFormat(slogformat);
   ls.setPart(spart);
   ls.setLogReg(slog);
-  std::string str = ls.getPart();
+  std::string str(ls.getPart());
   if(str.empty()) {
     *error = 1;
   }
 
-  sprintf(result, str.c_str());
-  *length = (uint) strlen(result);
+  /*
+   * In order to avoid problems with very complex and long URLs it is necessary
+   * to make the correct allocation of memory, before copying the
+   * content to 'result'
+   * Based in: https://stackoverflow.com/questions/7352099/stdstring-to-char
+   *
+   */
+  result = std::strcpy((char*)malloc(str.length()+1), str.c_str());
+  *length = (unsigned long) std::strlen(result);
   return result;
 }
 

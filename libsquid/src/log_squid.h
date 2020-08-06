@@ -26,6 +26,7 @@
 #ifdef HAVE_DLOPEN
 extern "C" {
   my_bool log_squid_init( UDF_INIT* initid, UDF_ARGS* args, char* message );
+  void log_squid_deinit( UDF_INIT* initid );
   char* log_squid(UDF_INIT *initid, UDF_ARGS *args, char* result, unsigned long* length,	char *is_null, char *error);
 } // extern "C"
 
