@@ -7,7 +7,7 @@ Reserved Word                   Directive       Comments
 unix_timestamp                  %ts.%03tu
 sec_since_epch                  %ts             not used yet
 milliseconds                    %tu             not used yet
-response_time                   %tr
+response_time                   %tr             milliseconds
 client_src_ip_addr              %>a
 squid_req_st_and_http_st_send   %Ss/%03>Hs
 squid_req_status                %Ss
@@ -15,7 +15,7 @@ squid_hier_status               %Sh
 squid_req_and_hier_status       %Ss/%sh
 squid_hier_st_and_server_ip     %Sh/%<a
 http_status_send                %>Hs
-total_size_req                  %<st
+total_size_req                  %<st            bytes
 req_method                      %rm
 req_url_rcv                     %ru
 mime_type                       %mt
