@@ -17,7 +17,8 @@ LDFLAGS=-shared
 
 TARGET = lib/liblogsquid.so
 SRCS =  src/libsquid.cc \
-	src/log_squid.cc
+	src/log_squid.cc \
+	src/log_squid_sum.cc
 
 
 OBJS = $(%.cc=%.o)
