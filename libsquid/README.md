@@ -26,8 +26,20 @@ __Line command:__ Using mysql command.
 mysql [-p] [-D test] <  docs/create-funcs.sql
 
 ## References
+* Syntax<br>
+Type: Aggregation<br>
+_INTEGER log_squid_sum(string,string,string);_<br>
+Arguments:<br>
+1st: One these: squid | common | combined<br>
+2nd: response_time | total_size_req<br>
+3rd: Log line<br>
+Comments: This function returns the sumatory of the values referring to the response_time and total_size_req.<br>
+
+![](docs/ex01.png)<br>
+![](docs/ex02.png)
 
 * Syntax<br>
+Type: function
 _string log_squid(string,string,string);_<br>
 Arguments:<br>
 1st: One these: squid | common | combined | referrer | useragent<br>
@@ -57,28 +69,7 @@ UDF Reserved Word: useragent<br>
 The complete list of words reserved for use in the function can be found in the *docs/reserved-words.txt* file
 
 * Usage Examples<br>
-select log_squid("squid", "unix_timestamp",
-'1590128490.529   399 192.168.100.25 TAG_NONE/200 0 CONNECT 2.22.197.191:443 - ORIGINAL_DST/2.22.197.191 -'
-);<br>
-Returns: 1590128490.529<br>
-select squid_logparts("combined", "client_src_ip_addr", FLD_LOG);<br>
-Returns: 172.16.50.100<br><br>
-slog = 1591165807.622      6 192.168.100.53 TCP_DENIED/403 **4131** POST http://su.ff.avast.com/R/A2QKIDVjOTFjZDExOTQ1MzQzZmViMTc3NzUzMDg4MTRiYzhlEgQEAgYgGKwCIgEAKgcIBBCjsex6OLCYjKABQiAAAAAAAAAAAAAAAAAAAAAA1rqmBFGB-l10EdXP6TiASUiAg5gI - HIER_NONE/- text/html<br>
-select squid_totalsize_req("squid", slog) as tot
-from squidlog;<br>
-Returns: 4131<br><br>
-select<br>
-  log_squid("squid", "total_req_size",slog) as IP<br>
-from squidlog<br>
-where
-  log_squid("squid", "client_src_ip_addr",slog) = "192.168.11.22";<br><br>
-select count(*) from squid_useragent<br>
-where log_squid("useragent","user_agent",log) like '%Mozilla%';<br><br>
-MariaDB [test]> select count(*) from squid_useragent where log_squid("useragent","user_agent",log) like '%Mozilla%';<br>
-
-+----------+<br>
-| count(*) |<br>
-+----------+<br>
-|      624 |<br>
-+----------+<br>
-1 row in set (0.075 sec)<br>
+![](docs/ex03.png)<br>
+![](docs/ex04.png)<br>
+![](docs/ex05.png)<br>
+![](docs/ex06.png)
