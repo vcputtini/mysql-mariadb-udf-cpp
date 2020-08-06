@@ -19,7 +19,7 @@ make install    <br>
 
 ### Create UDF's
 
-To create (register) the UDF's to used in the database, we will use the DDL's that are encoded in the __docs/create-funcs.sql__ file.
+To create (register) the UDF's to used in the database, we will use the DDL's that are encoded in the __docs/create-functions.sql__ file.
 
 __Line command:__ Using mysql command.
 
