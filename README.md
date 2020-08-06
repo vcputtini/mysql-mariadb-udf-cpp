@@ -7,6 +7,13 @@ problems of all kinds with performance and security.
 
 As much as possible we will provide functions for use and learning.
 
+# Before continuing, pay attention to these details:
+- The libraries must be compiled in a compatible environment both with respect to the Linux distro in use as well as the version of MySQL or MariaDB.<br>
+- Never install new libraries directly in the production environment.<br>
+- We advise that after installing the libraries in the 'plugin' directory, the database server must be restarted.<br>
+
+# Libraries
+
 - liblocation:<br>
 It is a minimal library of functions related to Geo localization to be used directly in SQL statements in MariaDB/MySQL.
 Please see liblocation/README.md for details.
